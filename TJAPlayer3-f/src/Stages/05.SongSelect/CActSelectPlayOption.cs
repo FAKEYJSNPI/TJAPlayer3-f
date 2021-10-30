@@ -365,7 +365,7 @@ namespace TJAPlayer3
 			}
 			else
 			{
-				y -= 100;
+				y = 100;
 			}
 
 			for (int i = 0; i < lci[nPlayer].Count; i++)
