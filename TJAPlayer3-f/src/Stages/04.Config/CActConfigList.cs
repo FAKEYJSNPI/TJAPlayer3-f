@@ -506,7 +506,7 @@ namespace TJAPlayer3
 			this.list項目リスト.Add( this.iDrumsReturnToMenu );
 
 			#region [ AutoPlay ]
-#if PLAYABLE
+
 			this.iTaikoAutoPlay = new CItemToggle( "AUTO PLAY", TJAPlayer3.ConfigIni.b太鼓パートAutoPlay[0],
 				"すべての音符を自動で演奏します。\n" +
 				"",
@@ -520,7 +520,7 @@ namespace TJAPlayer3
 				"To play both Taiko\n" +
 				" automatically." );
 			this.list項目リスト.Add( this.iTaikoAutoPlay2P );
-#endif
+
 
 			this.iTaikoAutoRoll = new CItemToggle( "AUTO Roll", TJAPlayer3.ConfigIni.bAuto先生の連打,
 				"OFFにするとAUTO先生が黄色連打を\n" +
@@ -1572,10 +1572,8 @@ namespace TJAPlayer3
 		private CItemInteger iDrumsScrollSpeed1P;
 		private CItemInteger iDrumsScrollSpeed2P;
 		private CItemToggle iDrumsTight;
-#if PLAYABLE
 		private CItemToggle iTaikoAutoPlay;
 		private CItemToggle iTaikoAutoPlay2P;
-#endif
 		private CItemToggle iTaikoAutoRoll;
 		private CItemToggle iTaikoBranchGuide;
 		private CItemList iTaikoDefaultCourse; //2017.01.30 DD デフォルトでカーソルをあわせる難易度
@@ -1702,10 +1700,9 @@ namespace TJAPlayer3
 		}
 		private void tConfigIniへ記録する_Drums()
 		{
-#if PLAYABLE
+
 			TJAPlayer3.ConfigIni.b太鼓パートAutoPlay[0] = this.iTaikoAutoPlay.bON;
 			TJAPlayer3.ConfigIni.b太鼓パートAutoPlay[1] = this.iTaikoAutoPlay2P.bON;
-#endif
 			TJAPlayer3.ConfigIni.bAuto先生の連打 = this.iTaikoAutoRoll.bON;
 
 			TJAPlayer3.ConfigIni.n譜面スクロール速度[0] = this.iDrumsScrollSpeed1P.n現在の値;
