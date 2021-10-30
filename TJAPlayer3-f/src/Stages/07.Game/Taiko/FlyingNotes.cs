@@ -30,8 +30,8 @@ namespace TJAPlayer3
 						Flying[i].IsUsing = true;
 						Flying[i].Lane = nLane;
 						Flying[i].Player = nPlayer;
-						Flying[i].X = StartPointX[nPlayer];
-						Flying[i].Y = TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[nPlayer];
+						Flying[i].X = -100;// StartPointX[nPlayer];
+						Flying[i].Y = -100;// TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[nPlayer];
 						Flying[i].StartPointX = StartPointX[nPlayer];
 						Flying[i].StartPointY = TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[nPlayer];
 						Flying[i].OldValue = 0;
@@ -40,7 +40,7 @@ namespace TJAPlayer3
 						Flying[i].Height = Math.Abs(TJAPlayer3.Skin.Game_Effect_FlyingNotes_EndPoint_Y[nPlayer] - TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[nPlayer]);
 						Flying[i].Width = Math.Abs((TJAPlayer3.Skin.Game_Effect_FlyingNotes_EndPoint_X[nPlayer] - StartPointX[nPlayer])) / 2;
 						//Console.WriteLine("{0}, {1}", width2P, height2P);
-						Flying[i].Counter = new CCounter(0, (180), TJAPlayer3.Skin.Game_Effect_FlyingNotes_Timer, TJAPlayer3.Timer);
+						Flying[i].Counter = new CCounter(36, 140, TJAPlayer3.Skin.Game_Effect_FlyingNotes_Timer, TJAPlayer3.Timer);
 						//Flying[i].Counter = new CCounter(0, 200000, CDTXMania.Skin.Game_Effect_FlyingNotes_Timer, CDTXMania.Timer);
 
 						Flying[i].IncreaseX = (1.00 * Math.Abs((TJAPlayer3.Skin.Game_Effect_FlyingNotes_EndPoint_X[nPlayer] - StartPointX[nPlayer]))) / (180);
@@ -109,7 +109,7 @@ namespace TJAPlayer3
 						{
 							if(TJAPlayer3.Skin.Game_Effect_FlyingNotes_IsUsingEasing)
 							{
-								Flying[i].X = Flying[i].StartPointX + Flying[i].Width + ((-Math.Cos(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * Flying[i].Width));
+								Flying[i].X = (Flying[i].StartPointX + 439 + ((-Math.Cos(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * 499))) - 85;
 							}
 							else
 							{
@@ -127,19 +127,28 @@ namespace TJAPlayer3
 
 							if (Flying[i].Player == 0)
 							{
-								Flying[i].Y = (TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[Flying[i].Player]) - Math.Sin(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * TJAPlayer3.Skin.Game_Effect_FlyingNotes_Sine;
+								Flying[i].Y = ((TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[Flying[i].Player]) - Math.Sin(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * 559) + 263;
 								Flying[i].Y -= Flying[i].IncreaseY * Flying[i].Counter.n現在の値;
 							}
 							else
 							{
-								Flying[i].Y = (TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[Flying[i].Player]) + Math.Sin(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * TJAPlayer3.Skin.Game_Effect_FlyingNotes_Sine;
+								Flying[i].Y = ((TJAPlayer3.Skin.Game_Effect_FlyingNotes_StartPoint_Y[Flying[i].Player]) + Math.Sin(Flying[i].Counter.n現在の値 * (Math.PI / 180)) * 599) - 419;
 								Flying[i].Y += Flying[i].IncreaseY * Flying[i].Counter.n現在の値;
 							}
 
 						}
 
-						TJAPlayer3.Tx.Notes?.t2D描画(TJAPlayer3.app.Device, CTexture.RefPnt.Center, (int)Flying[i].X, (int)Flying[i].Y, new Rectangle(Flying[i].Lane * 130, 0, 130, 130));
-						
+
+						if (Flying[i].Player == 0)
+						{
+							TJAPlayer3.Tx.Notes?.t2D描画(TJAPlayer3.app.Device, (int)Flying[i].X, (int)Flying[i].Y, new Rectangle(Flying[i].Lane * 130, 0, 130, 130));
+						}
+						else if (Flying[i].Player == 1)
+						{
+							//
+							TJAPlayer3.Tx.Notes?.t2D描画(TJAPlayer3.app.Device, (int)Flying[i].X, (int)Flying[i].Y, new Rectangle(Flying[i].Lane * 130, 0, 130, 130));
+						}
+
 					}
 				}
 			}
