@@ -247,7 +247,7 @@ namespace TJAPlayer3
 					if (TJAPlayer3.Tx.SongLoading_Plate != null)
 					{
 						TJAPlayer3.Tx.SongLoading_Plate.eBlendMode = TJAPlayer3.Skin.SongLoading_Plate_ScreenBlend ? CTexture.EBlendMode.Screen : CTexture.EBlendMode.Normal; //あまりにも出番が無い
-						TJAPlayer3.Tx.SongLoading_Plate.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 30.0));
+						TJAPlayer3.Tx.SongLoading_Plate.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 12.0));
 						if (TJAPlayer3.Skin.SongLoading_Plate_ReferencePoint == CSkin.ReferencePoint.Left)
 						{
 							TJAPlayer3.Tx.SongLoading_Plate.t2D描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.SongLoading_Plate_X, TJAPlayer3.Skin.SongLoading_Plate_Y - (TJAPlayer3.Tx.SongLoading_Plate.szTextureSize.Height / 2));
@@ -266,7 +266,7 @@ namespace TJAPlayer3
 					{
 						int nサブタイトル補正 = string.IsNullOrEmpty(TJAPlayer3.stage選曲.r確定されたスコア.譜面情報.strSubTitle) ? 15 : 0;
 
-						this.txタイトル.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 30.0));
+						this.txタイトル.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 20.0));
 						if (TJAPlayer3.Skin.SongLoading_Title_ReferencePoint == CSkin.ReferencePoint.Left)
 						{
 							this.txタイトル.t2D描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.SongLoading_Title_X, TJAPlayer3.Skin.SongLoading_Title_Y - (this.txタイトル.szTextureSize.Height / 2) + nサブタイトル補正);
@@ -282,7 +282,7 @@ namespace TJAPlayer3
 					}
 					if (this.txサブタイトル != null)
 					{
-						this.txサブタイトル.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 30.0));
+						this.txサブタイトル.Opacity = CConvert.nParsentTo255((this.ct曲名表示.n現在の値 / 20.0));
 						if (TJAPlayer3.Skin.SongLoading_SubTitle_ReferencePoint == CSkin.ReferencePoint.Left)
 						{
 							this.txサブタイトル.t2D描画(TJAPlayer3.app.Device, TJAPlayer3.Skin.SongLoading_SubTitle_X, TJAPlayer3.Skin.SongLoading_SubTitle_Y - (this.txサブタイトル.szTextureSize.Height / 2));
